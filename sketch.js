@@ -1,7 +1,7 @@
 var startingNote, herosama, en1, en2, en3, en4, background, cc,score;
 var heroimg, en1img, en2img, en3img, en4img,bgimg;
 var p11,p22,p33;
-
+var p1grp, p2grp, p3grp;
 
 function preload(){
   heroimg = loadImage("images/my own game hero.png");
@@ -18,6 +18,9 @@ herosama.scale = 0.25;
 //text("SURVIVE")
 //gameOver.depth = gameOver.depth+10;  
 //gameOver.visible = false;  
+p1grp=new Group();
+p2grp=new Group();
+p3grp=new Group();
 
 }
 
@@ -58,3 +61,37 @@ function draw() {
 
 }
 
+function createp3() {
+  if (World.frameCount % 250 == 0) {
+  p33 = new p3(Math.round(rand(200,600)),800);
+
+  p33.scale=0.75;
+  p33.velocityY = -3;
+  p33.lifetime = 1200;
+  p3grp.add(p33);
+  }
+}
+
+function createp1() {
+  if (World.frameCount % 80 == 0) {
+  p11 = new p1(Math.round(rand(200,600)),800);
+
+
+  p11.scale=0.75;
+  p11.velocityY = -3;
+  p11.lifetime = 1200;
+  p1grp.add(p11);
+}
+}
+
+function createp2() {
+  if (World.frameCount % 150 == 0) {
+    p22 = new p2(Math.round(rand(200,600)),800);
+  
+  
+    p22.scale=0.75;
+    p22.velocityY = -3;
+    p22.lifetime = 1200;
+    p2grp.add(p22);
+  }
+}
